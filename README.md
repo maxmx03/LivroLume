@@ -65,7 +65,6 @@ Typescript in Vite.
       - root.ts
       - library.ts
       - book.ts
-      - error.ts
   - hooks
     - use-theme.ts
   - routes/
@@ -76,8 +75,6 @@ Typescript in Vite.
   - controllers
     - library-controller.tsx
     - book-controller.tsx
-    - about-me-controller.tsx
-    - error-controller.tsx
   - themes
     - colors
     - components

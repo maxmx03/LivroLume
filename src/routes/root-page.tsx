@@ -6,11 +6,7 @@ import {
   SideBarNavLink,
 } from '../components';
 import { PiBooks, PiHouse, PiBook, PiGear } from 'react-icons/pi';
-import {
-  bookRoute,
-  libraryRoute,
-  settingsRoute,
-} from '../constants/routes';
+import { bookRoute, libraryRoute, settingsRoute } from '../constants/routes';
 import { Outlet } from 'react-router-dom';
 
 const links = [

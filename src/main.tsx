@@ -6,7 +6,6 @@ import App from './app';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
 
-// TODO: CREATE ERROR-PAGE
 // TODO: CREATE LIBRARY-PAGE
 // TODO: CREATE LIBRARY FEATURE REDUCER AND PAGE
 // TODO: CREATE MENU-BAR COMPONENT

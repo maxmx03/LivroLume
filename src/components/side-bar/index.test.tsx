@@ -1,10 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import { SideBar, SideBarBrand, SideBarNav, SideBarNavLink } from '..';
 import { PiBook, PiBooks, PiGear, PiHouse } from 'react-icons/pi';
-import { bookRoute, libraryRoute } from '../../constants/routes';
+import { bookRoute, libraryRoute, settingsRoute } from '../../constants/routes';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 describe('Layout', () => {
-  test('renders', async () => {
+  test('renders', () => {
     const links = [
       {
         text: 'Home',
@@ -23,36 +24,48 @@ describe('Layout', () => {
       },
     ];
 
-    render(
-      <SideBar>
-        <SideBarBrand />
-        <SideBarNav>
-          {links.map((link, index) => (
-            <SideBarNavLink
-              to={link.to}
-              icon={link.icon}
-              text={link.text}
-              key={index}
-            />
-          ))}
-        </SideBarNav>
-        <SideBarNavLink to="/settings" icon={PiGear} text="Settings" />
-      </SideBar>
-    );
+    const renderComponent = () => {
+      const router = createBrowserRouter([
+        {
+          path: '/',
+          element: (
+            <SideBar>
+              <SideBarBrand />
+              <SideBarNav>
+                {links.map((link, index) => (
+                  <SideBarNavLink
+                    to={link.to}
+                    icon={link.icon}
+                    text={link.text}
+                    key={index}
+                  />
+                ))}
+              </SideBarNav>
+              <SideBarNavLink
+                to={settingsRoute.baseUrl}
+                icon={PiGear}
+                text="Settings"
+              />
+            </SideBar>
+          ),
+        },
+      ]);
 
-    const sideBarIcons = await screen.findAllByRole('img');
-    expect(sideBarIcons.length).toBe(5);
+      render(<RouterProvider router={router} />);
+    };
 
-    const sideBarHomeText = await screen.findByText('Home');
-    expect(sideBarHomeText).toBeInTheDocument();
+    renderComponent();
 
-    const sideBarLibraryText = await screen.findByText('Library');
-    expect(sideBarLibraryText).toBeInTheDocument();
+    const sideBarBrand = screen.getByRole('img');
+    expect(sideBarBrand).toBeInTheDocument();
 
-    const sideBarBookText = await screen.findByText('Book');
-    expect(sideBarBookText).toBeInTheDocument();
+    const sideButtons = screen.getAllByRole('button');
+    expect(sideButtons.length).toBe(4);
 
-    const sideBarSettingsText = await screen.findByText('Settings');
-    expect(sideBarSettingsText).toBeInTheDocument();
+    const textsToCheck = ['Home', 'Library', 'Book', 'Settings'];
+    textsToCheck.forEach(async (text) => {
+      const sideBarText = await screen.findByText(text);
+      expect(sideBarText).toBeInTheDocument();
+    });
   });
 });

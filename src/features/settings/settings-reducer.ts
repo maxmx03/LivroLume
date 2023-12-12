@@ -29,6 +29,6 @@ const settingsSlicer = createSlice({
 });
 
 export const { setFont, setTheme } = settingsSlicer.actions;
-export const { selectFont, selectTheme } = settingsSlicer.selectors
+export const { selectFont, selectTheme } = settingsSlicer.selectors;
 
 export default settingsSlicer.reducer;

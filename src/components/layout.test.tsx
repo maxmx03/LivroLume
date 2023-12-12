@@ -5,7 +5,7 @@ describe('Layout', () => {
   test('renders', () => {
     render(<Layout>layout</Layout>);
 
-    const layoutElement = screen.getByText('layout');
-    expect(layoutElement).toBeInTheDocument();
+    const text = screen.getByText('layout');
+    expect(text).toBeInTheDocument();
   });
 });

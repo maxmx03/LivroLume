@@ -7,8 +7,8 @@ import fonts from './fonts';
 export type Themes = 'gruvbox' | 'onedark' | 'solarized' | 'theme';
 
 const common = {
-  fonts,
   components,
+  fonts,
   styles,
 };
 
