@@ -10,7 +10,7 @@ import {
   librarySelector,
 } from '../features/library/library-reducer';
 import { store } from '../app/store';
-import { getBook, getFile } from '../lib/luma-api';
+import { getBook, getFile } from '../lib/lume-api';
 
 const getState = store.getState;
 const dispatch = store.dispatch;

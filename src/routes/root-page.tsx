@@ -1,6 +1,6 @@
 import {
   Layout,
-  Loading,
+  LazyOutlet,
   SideBar,
   SideBarBrand,
   SideBarNav,
@@ -8,8 +8,6 @@ import {
 } from '../components';
 import { PiBooks, PiHouse, PiBook, PiGear } from 'react-icons/pi';
 import { bookRoute, libraryRoute, settingsRoute } from '../constants/routes';
-import { Outlet, useNavigation } from 'react-router-dom';
-import { Center } from '@chakra-ui/react';
 
 const links = [
   {
@@ -30,8 +28,6 @@ const links = [
 ];
 
 const RootPage = () => {
-  const navigation = useNavigation();
-
   return (
     <Layout>
       <SideBar>
@@ -52,13 +48,7 @@ const RootPage = () => {
           text="Settings"
         />
       </SideBar>
-      {navigation.state !== 'idle' ? (
-        <Center h="100%" w="100%">
-          <Loading text={navigation.state} />
-        </Center>
-      ) : (
-        <Outlet />
-      )}
+      <LazyOutlet />
     </Layout>
   );
 };

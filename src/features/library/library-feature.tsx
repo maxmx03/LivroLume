@@ -15,7 +15,8 @@ const Library: React.FC<Props> = ({ books }) => {
       h="100%"
       w="100%"
       templateColumns={`repeat(auto-fill, minmax(${bookWidth + 10}px, 1fr))`}
-      rowGap={10}
+      justifyItems="center"
+      gap={5}
       overflow="auto"
       padding={10}
     >

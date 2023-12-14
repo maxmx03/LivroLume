@@ -8,6 +8,7 @@ import Section from './section';
 import Book from './book';
 import MenuBar from './menu-bar';
 import Loading from './Loading';
+import LazyOutlet from './lazy-outlet';
 
 export {
   Layout,
@@ -20,4 +21,5 @@ export {
   Book,
   MenuBar,
   Loading,
+  LazyOutlet,
 };
