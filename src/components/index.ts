@@ -5,6 +5,9 @@ import SideBarNav from './side-bar/side-bar-nav';
 import SideBarNavLink from './side-bar/side-bar-nav-link';
 import Article from './article';
 import Section from './section';
+import Book from './book';
+import MenuBar from './menu-bar';
+import Loading from './Loading';
 
 export {
   Layout,
@@ -14,4 +17,7 @@ export {
   SideBarNavLink,
   Article,
   Section,
+  Book,
+  MenuBar,
+  Loading,
 };

@@ -6,9 +6,7 @@ const baseUrl = '/library';
 const libraryRoute = {
   baseUrl,
   add: {
-    url(params?: Params): string {
-      if (params && params.multi) return `${baseUrl}/add/files`;
-
+    url(): string {
       return `${baseUrl}/add/file`;
     },
   },

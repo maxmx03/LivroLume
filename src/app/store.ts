@@ -1,12 +1,8 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { loadState, storeState } from '../lib/local-storage';
-import settingsReducer from '../features/settings/settings-reducer';
+import { rootReducer } from './rootReducer';
 
 const persistedState = loadState();
-
-export const rootReducer = combineReducers({
-  settings: settingsReducer,
-});
 
 export const store = configureStore({
   reducer: rootReducer,
@@ -17,9 +13,9 @@ store.subscribe(() => {
   const state = store.getState();
 
   storeState({
-    // library: state.library,
-    // book: state.book,
     settings: state.settings,
+    library: state.library,
+    // book: state.book,
   });
 });
 

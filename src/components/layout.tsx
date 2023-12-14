@@ -9,9 +9,7 @@ const Layout: React.FC<Props> = ({ children, ...rest }) => {
     <Box
       display="flex"
       h="100%"
-      width="100%"
-      maxH="100%"
-      maxW="100%"
+      w="100%"
       bg="background"
       {...rest}
     >

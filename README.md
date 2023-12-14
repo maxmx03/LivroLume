@@ -24,6 +24,7 @@ Typescript in Vite.
 ## Recommended IDE Setup
 
 - [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+- [Neovim](https://neovim.io/) + [LunarVim](https://www.lunarvim.org/)
 
 ## File Structure
 
@@ -47,14 +48,15 @@ Typescript in Vite.
       - index.tsx
   - components/
     - about-project.tsx
-    - file-options.tsx
     - layout.tsx
     - section.tsx
     - article.tsx
+    - book/
+        index.tsx
+        book-overlay.tsx
     - button/
       - bookmark-button.tsx
     - menu-bar.tsx
-    - tool-bar.tsx
     - side-bar/
       - index.tsx
       - side-bar-brand.tsx
@@ -82,7 +84,7 @@ Typescript in Vite.
     - index.ts
     - global-css.ts
   - lib
-    - browse-epub.ts
+    - luma-api.ts
     - local-storage.ts
     - to-title-case.ts
 
