@@ -1,4 +1,4 @@
-import { AbsoluteCenter, Center, Text } from '@chakra-ui/react';
+import { AbsoluteCenter, Button, Center, Text } from '@chakra-ui/react';
 
 type Props = {
   title: string;
@@ -16,8 +16,11 @@ const BookOverlay: React.FC<Props> = ({ title }) => (
       opacity: '1',
     }}
   >
-    <Center h="inherit" w="inherit">
-      <Text color="#ffffff" textAlign="center">{title}</Text>
+    <Center h="inherit" w="inherit" flexDir="column" gap={3}>
+      <Text color="#ffffff" textAlign="center">
+        {title}
+      </Text>
+      <Button type="submit">Read</Button>
     </Center>
   </AbsoluteCenter>
 );

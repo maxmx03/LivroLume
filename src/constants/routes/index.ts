@@ -1,6 +1,6 @@
 import libraryRoute from './library-route';
-import bookRoute from './book-route';
+import readerRoute from './reader-route';
 import settingsRoute from './settings-route';
 import externalRoute from './external-route';
 
-export { libraryRoute, bookRoute, settingsRoute, externalRoute };
+export { libraryRoute, readerRoute, settingsRoute, externalRoute };

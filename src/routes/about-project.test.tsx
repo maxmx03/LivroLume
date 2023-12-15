@@ -18,6 +18,6 @@ describe('AboutProject Component', () => {
 
     const externalLink = screen.getByRole('link', { name: 'here' });
     expect(externalLink).toHaveAttribute('href', externalRoute.project);
-    expect(externalLink).toHaveAttribute('target', '_blank'); // If the link opens in a new tab/window
+    expect(externalLink).toHaveAttribute('target', '_blank');
   });
 });

@@ -1,7 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import { SideBar, SideBarBrand, SideBarNav, SideBarNavLink } from '..';
 import { PiBook, PiBooks, PiGear, PiHouse } from 'react-icons/pi';
-import { bookRoute, libraryRoute, settingsRoute } from '../../constants/routes';
+import {
+  readerRoute,
+  libraryRoute,
+  settingsRoute,
+} from '../../constants/routes';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 describe('Layout', () => {
@@ -18,8 +22,8 @@ describe('Layout', () => {
         icon: PiBooks,
       },
       {
-        text: 'Book',
-        to: bookRoute.baseUrl,
+        text: 'Reader',
+        to: readerRoute.baseUrl,
         icon: PiBook,
       },
     ];
@@ -62,7 +66,7 @@ describe('Layout', () => {
     const sideButtons = screen.getAllByRole('button');
     expect(sideButtons.length).toBe(4);
 
-    const textsToCheck = ['Home', 'Library', 'Book', 'Settings'];
+    const textsToCheck = ['Home', 'Library', 'Reader', 'Settings'];
     textsToCheck.forEach(async (text) => {
       const sideBarText = await screen.findByText(text);
       expect(sideBarText).toBeInTheDocument();

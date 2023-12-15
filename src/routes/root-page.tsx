@@ -7,7 +7,7 @@ import {
   SideBarNavLink,
 } from '../components';
 import { PiBooks, PiHouse, PiBook, PiGear } from 'react-icons/pi';
-import { bookRoute, libraryRoute, settingsRoute } from '../constants/routes';
+import { readerRoute, libraryRoute, settingsRoute } from '../constants/routes';
 
 const links = [
   {
@@ -21,15 +21,15 @@ const links = [
     icon: PiBooks,
   },
   {
-    text: 'Book',
-    to: bookRoute.baseUrl,
+    text: 'Reader',
+    to: readerRoute.baseUrl,
     icon: PiBook,
   },
 ];
 
 const RootPage = () => {
   return (
-    <Layout>
+    <Layout flexDir="row">
       <SideBar>
         <SideBarBrand />
         <SideBarNav>

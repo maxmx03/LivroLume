@@ -1,11 +1,6 @@
-import { Button, VStack, Heading, Text, Center } from '@chakra-ui/react';
-import { useNavigate, useRouteError } from 'react-router-dom';
+import { Button, Center, Heading } from '@chakra-ui/react';
 import { Layout } from '../components';
-
-type Error = {
-  statusText: string;
-  message: string;
-};
+import { useNavigate } from 'react-router-dom';
 
 const ErrorPage = () => {
   const navigate = useNavigate();
@@ -19,15 +14,7 @@ const ErrorPage = () => {
       <Heading fontSize="6rem" role="heading">
         404
       </Heading>
-      <Button
-        onClick={goPreviousPage}
-        // bg="blue"
-        // color="foreground"
-        // _hover={{ background: 'foreground', color: 'blue' }}
-        // _active={{ background: 'foreground', color: 'blue' }}
-      >
-        Go Back
-      </Button>
+      <Button onClick={goPreviousPage}>Go Back</Button>
     </Layout>
   );
 };

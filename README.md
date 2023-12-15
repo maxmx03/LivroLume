@@ -43,8 +43,8 @@ Typescript in Vite.
     - library/
       - library-reducer
       - index.tsx
-    - book/
-      - book-reducer
+    - reader/
+      - reader-reducer
       - index.tsx
   - components/
     - about-project.tsx
@@ -66,17 +66,17 @@ Typescript in Vite.
     - routes/
       - root.ts
       - library.ts
-      - book.ts
+      - reader.ts
   - hooks
     - use-theme.ts
   - routes/
     - root-page.tsx
     - library-page.tsx
-    - book-page.tsx
+    - reader-page.tsx
     - error-page.tsx
   - controllers
     - library-controller.tsx
-    - book-controller.tsx
+    - reader-controller.tsx
   - themes
     - colors
     - components

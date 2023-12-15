@@ -15,7 +15,7 @@ store.subscribe(() => {
   storeState({
     settings: state.settings,
     library: state.library,
-    // book: state.book,
+    reader: state.reader,
   });
 });
 

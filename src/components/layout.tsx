@@ -8,6 +8,7 @@ const Layout: React.FC<Props> = ({ children, ...rest }) => {
   return (
     <Box
       display="flex"
+      flexDir="column"
       h="100%"
       w="100%"
       bg="background"

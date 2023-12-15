@@ -14,6 +14,9 @@ const Button = defineStyleConfig({
         color: 'blue',
       },
     },
+    wrapper: {
+      background: 'none',
+    },
   },
 });
 

@@ -49,7 +49,7 @@ export const getBook = async (filePath: string) => {
   await book.ready;
   const { title, description, pubdate, publisher, creator } =
     await book.loaded.metadata;
-  const cover = (await book.coverUrl()) ?? '/book.png';
+  const cover = (await book.coverUrl()) ?? '';
 
   return {
     id: filePath as EntityId,
@@ -63,4 +63,16 @@ export const getBook = async (filePath: string) => {
     isPageMarked: false,
     filePath,
   };
+};
+
+export const convertFilePathToUrl = async (filePath: string) => {
+  const platform = await os.platform();
+
+  if (platform === 'win32') {
+    const url = convertFileSrc(filePath);
+    return url;
+  } else {
+    const data = await readBinaryFile(filePath);
+    return data.buffer;
+  }
 };

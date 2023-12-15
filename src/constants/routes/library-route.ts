@@ -1,5 +1,5 @@
 type Params = {
-  multi: boolean;
+  multi?: boolean;
 };
 
 const baseUrl = '/library';
@@ -8,6 +8,11 @@ const libraryRoute = {
   add: {
     url(): string {
       return `${baseUrl}/add/file`;
+    },
+  },
+  read: {
+    url(): string {
+      return `${baseUrl}/read/file`;
     },
   },
   delete: {

@@ -1,7 +1,7 @@
 import { EntityId, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
-export type Book = {
+export type LibraryBook = {
   id: EntityId;
   title: string;
   description: string;
@@ -14,11 +14,11 @@ export type Book = {
   isPageMarked: boolean;
 };
 
-const libraryEntity = createEntityAdapter<Book>({
+const libraryEntity = createEntityAdapter<LibraryBook>({
   sortComparer: (a, b) => a.title.localeCompare(b.title),
 });
 
-const librarySlicer = createSlice({
+const librarySlice = createSlice({
   name: 'library',
   initialState: libraryEntity.getInitialState(),
   reducers: {
@@ -36,10 +36,10 @@ export const {
   libraryUpdateOne,
   libraryDeleteOne,
   libraryRemoveAll,
-} = librarySlicer.actions;
+} = librarySlice.actions;
 
 export const librarySelector = libraryEntity.getSelectors<RootState>(
   (state) => state.library
 );
 
-export default librarySlicer.reducer;
+export default librarySlice.reducer;

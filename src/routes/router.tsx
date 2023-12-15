@@ -2,7 +2,7 @@ import { createBrowserRouter, redirect } from 'react-router-dom';
 import RootPage from './root-page';
 import AboutProject from './about-project';
 import ErrorPage from './error-page';
-import { libraryRoute } from '../constants/routes';
+import { libraryRoute, readerRoute } from '../constants/routes';
 import LibraryPage from './library-page';
 import {
   libraryAddMany,
@@ -10,7 +10,9 @@ import {
   librarySelector,
 } from '../features/library/library-reducer';
 import { store } from '../app/store';
-import { getBook, getFile } from '../lib/lume-api';
+import { convertFilePathToUrl, getBook, getFile } from '../lib/lume-api';
+import { setFilePath } from '../features/reader/reader-reducer';
+import ReaderPage from './reader-page';
 
 const getState = store.getState;
 const dispatch = store.dispatch;
@@ -50,6 +52,28 @@ const router = createBrowserRouter([
           }
 
           return redirect(libraryRoute.baseUrl);
+        },
+      },
+      {
+        path: libraryRoute.read.url(),
+        element: <LibraryPage />,
+        action: async ({ request }) => {
+          const formData = await request.formData();
+          const filePath = formData.get('filePath');
+
+          dispatch(setFilePath(filePath));
+
+          return redirect(readerRoute.baseUrl);
+        },
+      },
+      {
+        path: readerRoute.baseUrl,
+        element: <ReaderPage />,
+        loader: async () => {
+          const filePath = getState().reader.filePath;
+          const url = await convertFilePathToUrl(filePath);
+
+          return url;
         },
       },
     ],

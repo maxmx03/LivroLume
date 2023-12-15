@@ -1,15 +1,19 @@
 import { Grid } from '@chakra-ui/react';
-import { Book as LibraryBook } from '../../components';
-import { Book } from './library-reducer';
+import { Book } from '../../components';
+import { LibraryBook } from './library-reducer';
+import { Form, useSubmit } from 'react-router-dom';
+import { libraryRoute } from '../../constants/routes';
 
 const bookWidth = 260;
 const bookHeight = 340;
 
 type Props = {
-  books: Book[];
+  books: LibraryBook[];
 };
 
 const Library: React.FC<Props> = ({ books }) => {
+  const submit = useSubmit();
+
   return (
     <Grid
       h="100%"
@@ -21,13 +25,25 @@ const Library: React.FC<Props> = ({ books }) => {
       padding={10}
     >
       {books.map((book) => (
-        <LibraryBook
+        <Form
           key={book.id}
-          imageUrl={book.cover}
-          title={book.title}
-          height={bookHeight}
-          width={bookWidth}
-        />
+          onSubmit={(event) => {
+            event.preventDefault();
+            const formData = new FormData();
+            formData.append('filePath', book.filePath);
+            submit(formData, {
+              method: 'post',
+              action: libraryRoute.read.url(),
+            });
+          }}
+        >
+          <Book
+            imageUrl={book.cover}
+            title={book.title}
+            height={bookHeight}
+            width={bookWidth}
+          />
+        </Form>
       ))}
     </Grid>
   );
