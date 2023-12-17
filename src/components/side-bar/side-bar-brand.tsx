@@ -9,9 +9,9 @@ const SideBarBrand = () => (
       height={`${size}px`}
       width={`${size}px`}
       borderRadius="20px"
-      bg="sidebarForeground"
+      bg="textSecondary"
     >
-      <Icon as={PiBooks} color="sidebarBackground" fontSize="62" role="img" />
+      <Icon as={PiBooks} color="bgSecondary" fontSize="62" role="img" />
     </Center>
   </GridItem>
 );

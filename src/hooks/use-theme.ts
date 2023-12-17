@@ -11,7 +11,7 @@ const useTheme = () => {
     setColor(colors[theme]);
   }, [theme]);
 
-  return { theme, color };
+  return { theme, colors: color };
 };
 
 export default useTheme;

@@ -9,6 +9,7 @@ import Book from './book';
 import MenuBar from './menu-bar';
 import Loading from './Loading';
 import LazyOutlet from './lazy-outlet';
+import ReaderBookMark from './reader-book-mark';
 
 export {
   Layout,
@@ -22,4 +23,5 @@ export {
   MenuBar,
   Loading,
   LazyOutlet,
+  ReaderBookMark,
 };

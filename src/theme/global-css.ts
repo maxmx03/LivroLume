@@ -3,6 +3,7 @@ const styles = {
     'html, body, #root': {
       width: '100%',
       height: '100%',
+      color: 'var(--chakra-colors-textPrimary)'
     },
   },
 };

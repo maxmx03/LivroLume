@@ -3,19 +3,16 @@ import { defineStyleConfig } from '@chakra-ui/react';
 const Button = defineStyleConfig({
   variants: {
     solid: {
-      background: 'blue',
-      color: 'background',
+      background: 'blue.500',
+      color: 'bgPrimary',
       _hover: {
-        background: 'background',
-        color: 'blue',
+        background: 'bgPrimary',
+        color: 'blue.500',
       },
       _active: {
-        background: 'background',
-        color: 'blue',
+        background: 'bgPrimary',
+        color: 'blue.500',
       },
-    },
-    wrapper: {
-      background: 'none',
     },
   },
 });

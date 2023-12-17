@@ -2,17 +2,20 @@ import { createBrowserRouter, redirect } from 'react-router-dom';
 import RootPage from './root-page';
 import AboutProject from './about-project';
 import ErrorPage from './error-page';
-import { libraryRoute, readerRoute } from '../constants/routes';
+import { libraryRoute, readerRoute, settingsRoute } from '../constants/routes';
 import LibraryPage from './library-page';
 import {
   libraryAddMany,
   libraryAddOne,
   librarySelector,
+  libraryUpdateOne,
 } from '../features/library/library-reducer';
 import { store } from '../app/store';
 import { convertFilePathToUrl, getBook, getFile } from '../lib/lume-api';
 import { setFilePath } from '../features/reader/reader-reducer';
 import ReaderPage from './reader-page';
+import { EntityId } from '@reduxjs/toolkit';
+import SettingsPage from './settings-page';
 
 const getState = store.getState;
 const dispatch = store.dispatch;
@@ -71,10 +74,54 @@ const router = createBrowserRouter([
         element: <ReaderPage />,
         loader: async () => {
           const filePath = getState().reader.filePath;
+          const book = librarySelector.selectById(getState(), filePath);
           const url = await convertFilePathToUrl(filePath);
 
-          return url;
+          return { url, book };
         },
+      },
+      {
+        path: readerRoute.edit.url(),
+        action: async ({ request }) => {
+          const formData = await request.formData();
+          const bookId = formData.get('bookId') as EntityId;
+          const location = formData.get('location') as number | string;
+          const book = librarySelector.selectById(getState(), bookId);
+
+          const dispatchUpdateLibraryOne = (
+            location: number | string,
+            isPageMarked: boolean
+          ) => {
+            dispatch(
+              libraryUpdateOne({
+                id: bookId,
+                changes: {
+                  location,
+                  isPageMarked,
+                },
+              })
+            );
+          };
+
+          const setBookMarkTrue = (location: number | string) => {
+            dispatchUpdateLibraryOne(location, true);
+          };
+          const setBookMarkFalse = (location: number | string) => {
+            dispatchUpdateLibraryOne(location, false);
+          };
+
+          if (book.location !== location) {
+            setBookMarkTrue(location);
+          } else {
+            setBookMarkFalse(0);
+          }
+
+          return redirect(readerRoute.baseUrl);
+        },
+      },
+      {
+        path: settingsRoute.baseUrl,
+        element: <SettingsPage />,
       },
     ],
   },

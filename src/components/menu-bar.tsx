@@ -27,10 +27,10 @@ const MenuBar: React.FC<Props> = ({ options }) => {
           <MenuButton as={Button} rightIcon={<MdKeyboardArrowDown />}>
             File
           </MenuButton>
-          <MenuList>
+          <MenuList bg="bgPrimary" borderColor="primary">
             {options.map((option, index) => (
               <Form key={index} method="POST" action={option.action}>
-                <MenuItem type="submit">
+                <MenuItem type="submit" bg="bgPrimary">
                   {option.label}
                 </MenuItem>
               </Form>

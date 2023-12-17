@@ -2,7 +2,7 @@ import { defineStyleConfig } from '@chakra-ui/react';
 
 const Text = defineStyleConfig({
   baseStyle: {
-    color: 'foreground',
+    color: 'textPrimary',
   },
 });
 

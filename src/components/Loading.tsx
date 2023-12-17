@@ -11,7 +11,7 @@ const Loading: React.FC<Props> = ({ text }) => {
         thickness="4px"
         speed="0.80s"
         emptyColor="fg"
-        color="heading"
+        color="primary"
         size="xl"
       />
       <Text>{text ?? 'Loading'}</Text>

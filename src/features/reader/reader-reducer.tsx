@@ -21,7 +21,8 @@ const readerSlice = createSlice({
   },
 });
 
-export const { setFilePath } = readerSlice.actions;
-export const { selectFilePath } = readerSlice.selectors;
+export const { setFilePath, } = readerSlice.actions;
+export const { selectFilePath } =
+  readerSlice.selectors;
 
 export default readerSlice.reducer;

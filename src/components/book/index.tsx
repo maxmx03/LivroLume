@@ -14,8 +14,8 @@ const Book: React.FC<Props> = ({ title, imageUrl, height, width }) => {
       <Image
         src={imageUrl}
         fallback={
-          <Center h="100%" w="100%" bg="foreground" p={5} boxShadow="2xl">
-            <Text color="background">{title}</Text>
+          <Center h="100%" w="100%" bg="bgDark" p={5} boxShadow="2xl">
+            <Text>{title}</Text>
           </Center>
         }
         alt={title}

@@ -6,10 +6,10 @@ import App from './app';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
 
-// INFO: MAYBE CREATE FILE-OPTIONS COMPONENT
 // TODO: CREATE TOOL-BAR COMPONENT
-// TODO: CREATE SETTINGS FEATURE PAGE
 // TODO: GITHUB ACTION TO BUILD FOR MACOS, LINUX, WINDOWS
+// TODO: TO BE ABLE TO DELETE BOOK FROM LIBRARY
+// TODO: CODE REFACTOR
 // PERF: TRY INCREASE PERFORMANCE
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

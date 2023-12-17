@@ -11,7 +11,7 @@ const SideBar: React.FC<Props> = ({ children }) => {
       w="170px"
       gridTemplateColumns="1fr"
       gridTemplateRows="repeat(3, 1fr)"
-      bg="sidebarBackground"
+      bg="bgSecondary"
     >
       {children}
     </Grid>

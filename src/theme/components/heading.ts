@@ -2,7 +2,7 @@ import { defineStyleConfig } from '@chakra-ui/react';
 
 const Heading = defineStyleConfig({
   baseStyle: {
-    color: 'green',
+    color: 'green.500',
   },
 });
 

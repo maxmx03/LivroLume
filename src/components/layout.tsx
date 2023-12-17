@@ -11,7 +11,7 @@ const Layout: React.FC<Props> = ({ children, ...rest }) => {
       flexDir="column"
       h="100%"
       w="100%"
-      bg="background"
+      bg="bgPrimary"
       {...rest}
     >
       {children}

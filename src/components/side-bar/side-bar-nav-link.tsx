@@ -1,6 +1,6 @@
 import { Center, GridItem, Icon, IconButton, Text } from '@chakra-ui/react';
 import { IconType } from 'react-icons';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 type Props = {
   to: string;
@@ -10,6 +10,9 @@ type Props = {
 
 const SideBarNavLink: React.FC<Props> = ({ to, icon, text }) => {
   const navigation = useNavigate();
+  const location = useLocation();
+
+  const isActive = () => location.pathname === to;
 
   return (
     <GridItem as={Center}>
@@ -20,10 +23,10 @@ const SideBarNavLink: React.FC<Props> = ({ to, icon, text }) => {
           icon={<Icon as={icon} />}
           role="button"
           fontSize={42}
-          color="sidebarForeground"
+          color={isActive() ? 'primary' : 'textSecondary'}
           aria-label={text}
         />
-        <Text color="sidebarForeground">{text}</Text>
+        <Text color={isActive() ? 'primary' : 'textSecondary'}>{text}</Text>
       </Center>
     </GridItem>
   );
