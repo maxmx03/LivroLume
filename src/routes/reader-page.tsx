@@ -34,7 +34,7 @@ const ReaderPage = () => {
     if (book) setLocation(book.location);
   }, []);
 
-  const handlePageMark = (event: React.FormEvent<HTMLFormElement>) => {
+  const onPageMark = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData();
     formData.append('location', location.toString());
@@ -45,7 +45,7 @@ const ReaderPage = () => {
   return (
     <Layout>
       <Flex width="100%" flexDir="row-reverse">
-        <Form onSubmit={handlePageMark}>
+        <Form onSubmit={onPageMark}>
           <ReaderBookMark
             type="submit"
             isActive={isBookMarked(book, location)}

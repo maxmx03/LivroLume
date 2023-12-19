@@ -4,11 +4,18 @@ import BookOverlay from './book-overlay';
 type Props = {
   title: string;
   imageUrl: string;
+  filePath: string;
   height: number;
   width: number;
 };
 
-const Book: React.FC<Props> = ({ title, imageUrl, height, width }) => {
+const Book: React.FC<Props> = ({
+  title,
+  imageUrl,
+  filePath,
+  height,
+  width,
+}) => {
   return (
     <GridItem width={width} height={height} position="relative">
       <Image
@@ -24,7 +31,7 @@ const Book: React.FC<Props> = ({ title, imageUrl, height, width }) => {
         h="100%"
         borderRadius="7px"
       />
-      <BookOverlay title={title} />
+      <BookOverlay title={title} filePath={filePath} />
     </GridItem>
   );
 };

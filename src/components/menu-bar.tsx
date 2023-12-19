@@ -24,7 +24,14 @@ const MenuBar: React.FC<Props> = ({ options }) => {
     <Flex w="100%">
       <Center padding={1} gap={5}>
         <Menu>
-          <MenuButton as={Button} rightIcon={<MdKeyboardArrowDown />}>
+          <MenuButton
+            as={Button}
+            rightIcon={<MdKeyboardArrowDown />}
+            background="none"
+            color="blue.500"
+            _hover={{ color: 'blue.600' }}
+            _active={{ color: 'blue.600', background: 'none' }}
+          >
             File
           </MenuButton>
           <MenuList bg="bgPrimary" borderColor="primary">

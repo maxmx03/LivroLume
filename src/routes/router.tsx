@@ -7,6 +7,7 @@ import LibraryPage from './library-page';
 import {
   libraryAddMany,
   libraryAddOne,
+  libraryDeleteOne,
   librarySelector,
   libraryUpdateOne,
 } from '../features/library/library-reducer';
@@ -59,7 +60,6 @@ const router = createBrowserRouter([
       },
       {
         path: libraryRoute.read.url(),
-        element: <LibraryPage />,
         action: async ({ request }) => {
           const formData = await request.formData();
           const filePath = formData.get('filePath');
@@ -67,6 +67,17 @@ const router = createBrowserRouter([
           dispatch(setFilePath(filePath));
 
           return redirect(readerRoute.baseUrl);
+        },
+      },
+      {
+        path: libraryRoute.delete.url(),
+        action: async ({ request }) => {
+          const formData = await request.formData();
+          const filePath = formData.get('filePath') as EntityId;
+
+          dispatch(libraryDeleteOne(filePath));
+
+          return redirect(libraryRoute.baseUrl);
         },
       },
       {
