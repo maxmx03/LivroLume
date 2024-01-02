@@ -1,8 +1,8 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import { RouterProvider } from 'react-router-dom';
+import useTheme from './hooks/use-theme';
 import router from './routes/router';
 import themes from './theme';
-import useTheme from './hooks/use-theme';
 
 const App = () => {
   const { theme } = useTheme();

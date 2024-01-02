@@ -1,5 +1,5 @@
-import { IReactReaderStyle, ReactReader } from 'react-reader';
 import { Rendition } from 'epubjs';
+import { IReactReaderStyle, ReactReader } from 'react-reader';
 
 type Props = {
   url: string | ArrayBufferLike;
